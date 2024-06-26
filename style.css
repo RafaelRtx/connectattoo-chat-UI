@@ -64,7 +64,6 @@ body {
 
 .sidenav{
   position: relative;
-  
 }
 
 .chat-box {
@@ -74,19 +73,17 @@ body {
   height: 80vh;
   width: 1200px;
   margin: 2rem auto;
-  border-radius: 12px 12px 12px 12px;
+  border-radius: 8px;
 }
 
 .chat-wrapper{
   overflow: auto;
-  height: 450px;;
+  height: 450px;
 }
 
 .conversation-content {
   background-color: rgb(15,15,15);
-  border-radius: 0px 12px 0 0px;
-  height: 70vh;
-  overflow: auto;
+  border-radius: 0 8px 8px 0;
 }
 
 .conversation-content > div:last-child{
@@ -147,6 +144,16 @@ body {
   align-items: center;
 }
 
+.chat-form{
+  margin-top:20px;
+}
+
+.chat-content{
+  height: 62.5vh;
+  overflow: auto;
+  background-color: rgb(15,15,15);
+}
+
 .conversations-column{
   flex-direction: column;
 }
@@ -158,6 +165,7 @@ body {
 .user-info{
   height: 80px;
   align-items: center;
+  border-radius: 0 8px 0 0;
 }
 
 .button-style {

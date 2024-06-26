@@ -84,40 +84,68 @@
             <p>visto por último 00:00</p>
           </div>
         </div>
-        <div class="content-baloon other">
-          <div class="flex other">
-            <h2>user</h2>
-            <span>00:00</span>
+        <div class="chat-content">
+          <div class="content-baloon other">
+            <div class="flex other">
+              <h2>user</h2>
+              <span>00:00</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p>
-        </div>
 
-        <div class="content-baloon me">
-          <div class="flex other">
-            <h2>user</h2>
-            <span>00:00</span>
+          <div class="content-baloon me">
+            <div class="flex other">
+              <h2>user</h2>
+              <span>00:00</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu</p>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiu</p>
-        </div>
 
-        <div class="content-baloon other">
-          <div class="flex other">
-            <h2>user</h2>
-            <span>00:00</span>
+          <div class="content-baloon other">
+            <div class="flex other">
+              <h2>user</h2>
+              <span>00:00</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
-        </div>
 
-        <div class="content-baloon me">
-          <div class="flex other">
-            <h2>user</h2>
-            <span>00:00</span>
+          <div class="content-baloon me">
+            <div class="flex other">
+              <h2>user</h2>
+              <span>00:00</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
-        </div>
-        
+
+          <div class="content-baloon other">
+            <div class="flex other">
+              <h2>user</h2>
+              <span>00:00</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</p>
+          </div>
+      </div>
+      <div class="chat-form">
+        <form>a</form>
+      </div>
       </section>
     </section>
   </header>
 </body>
+<script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+<script type="module">
+  const socket = io("https://chat-api-qjfduxo26q-uc.a.run.app/chat", {
+  reconnectionDelayMax: 10000,
+  transports: ["websocket"],
+  query: {
+    "profile": "32b8da77-a3f9-4671-ab2b-3e7cca8569c7"
+  }
+  });
+  // const a = await socket.emitWithAck("health")
+  // console.log(a)
+  const conversation = await socket.emitWithAck("conversation:get")
+  console.log(conversation)
+  const history = await socket.emitWithAck("history:get", {conversationId:conversation.conversationId})
+  console.log(history)
+</script>
 </html>
